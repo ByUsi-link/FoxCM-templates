@@ -7,12 +7,7 @@
     <div class="card shadow-lg">
         <div class="card-body">
             <h3 class="card-title mb-4 text-center">播放视频</h3>
-            <div class="embed-responsive embed-responsive-16by9 rounded overflow-hidden">
-                <video class="embed-responsive-item" controls>
-                    <source src="{{ url_for('static', filename='uploads/videos/' + video.video_filename) }}" type="video/mp4">
-                    您的浏览器不支持播放该视频。
-                </video>
-            </div>
+            <div id="dplayer" class="rounded overflow-hidden"></div>
         </div>
     </div>
     
@@ -42,4 +37,20 @@
     </div>
 
 </div>
+
+<!-- 引入 DPlayer -->
+<link href="https://cdn.byusi.top/DPlayer/css/DPlayer.min.css" rel="stylesheet">
+<script src="https://cdn.byusi.top/DPlayer/js/DPlayer.min.js"></script>
+<script>
+    const dp = new DPlayer({
+        container: document.getElementById('dplayer'),
+        video: {
+            url: "{{ url_for('static', filename='uploads/videos/' + video.video_filename) }}",
+            pic: "{{ url_for('static', filename='uploads/covers/' + video.cover_filename) }}",
+            type: 'auto'
+        },
+        theme: '#f4a261',
+        autoplay: false
+    });
+</script>
 {% endblock %}
