@@ -1,0 +1,1 @@
+# FoxCM-templates
