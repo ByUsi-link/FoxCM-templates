@@ -10,6 +10,14 @@
 <body class="bg-light">
     <div class="container py-4">
         <h1 class="text-center mb-4">管理后台</h1>
+        <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
         <div class="text-end mb-3">
             <a href="{{ url_for('index') }}" class="btn btn-primary">返回首页</a>
         </div>
