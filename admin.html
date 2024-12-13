@@ -10,18 +10,16 @@
 <body class="bg-light">
     <div class="container py-4">
         <h1 class="text-center mb-4">管理后台</h1>
-        <div class="container">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
+        <!-- 测试内容 -->
         <div class="alert alert-info">
             {% for message in messages %}
             <p>{{ message }}</p>
             {% endfor %}
         </div>
+        <!-- 测试内容 -->
         <div class="text-end mb-3">
             <a href="{{ url_for('index') }}" class="btn btn-primary">返回首页</a>
         </div>
-
         <!-- 用户管理 -->
         <h2>用户管理</h2>
         <div class="table-responsive">
